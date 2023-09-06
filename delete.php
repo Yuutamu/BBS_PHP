@@ -9,6 +9,7 @@ if (isset($_SESSION['id'])) {
     $messages ->execute(array($id));
     $message = $messages->fetch();
 
+    // DB操作
     if ($message['member_id'] == $_SESSION['id']) {
         $del = $db->prepare('DELETE FROM posts WHERE id=?');
         $del->execute(array($id));
